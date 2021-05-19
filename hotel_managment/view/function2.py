@@ -7,12 +7,12 @@ class Function2(Frame):
         super(Function2, self).__init__(container)
         label_status = Label(self, text="Room Information", foreground="red")
         label_status.grid(row=0, column=0, columnspan=3, padx=3, pady=3, sticky="NS")
-        #
+        # buttons
         self.button_back_call(attr_root)
         self.button_room_id_call()
         self.button_room_type_call()
         self.button_room_status_call()
-        #
+        # grid column configure
         self.grid_columnconfigure(0, weight=1)
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure(2, weight=1)
@@ -84,4 +84,3 @@ class Function2(Frame):
             #
             element += 1
             row += 1
-            pass

@@ -1,6 +1,7 @@
 from tkinter.ttk import *
 import hotel_managment.model.database as db
-
+# import PythonStore.GUI.ControllerStore as Cs
+import hotel_managment.control.controller as controller
 
 class Function1(Frame):
     def __init__(self, container, attr_root):
@@ -13,8 +14,8 @@ class Function1(Frame):
         self.button_enter_call()
         # entries calling
         self.entry_name_call()
-        self.entry_phone_call()
         self.entry_id_call()
+        self.entry_phone_call()
         self.entry_check_in_date_call()
         # combobox for type and rooms
         self.cbb_room_type_call()
@@ -33,7 +34,6 @@ class Function1(Frame):
         def command_to_back():
             self.destroy()
             attr_root.show_frame(attr_root.MenuFrame)
-            pass
 
     def button_enter_call(self):
         self.button_enter = Button(self, text="Enter", command=lambda: command_button_enter())
@@ -41,6 +41,30 @@ class Function1(Frame):
 
         #
         def command_button_enter():
+            # check1, check2, check3, check4, check5 = False, False, False, False, False
+            check_id = False
+            check_date = False
+            # consider the condition
+            if controller.input_identifier(self.entry_id.get(), self.label_id_annotation):
+                check_id = True
+            if controller.input_dob(self.entry_check_in_dat.get(), self.label_dob_annotation):
+                check_date = True
+
+            if check_id and check_date:
+                # set up
+                f_name = self.entry_name_first.get()
+                l_name = self.entry_name_last.get()
+                c_id = str(self.entry_id.get())
+                phone = self.entry_phone.get()
+                check_in_date = str(self.entry_check_in_dat.get())
+                room_id = str(self.cbb_room_avail.get())
+
+                # push information
+                db.set_customer_table(c_id, f_name, l_name, phone)
+                db.set_check_in_table(room_id, c_id, check_in_date)
+
+                #
+                self.label_room_avail_annotation.config(text="Action is Done !", foreground="red")
             pass
 
         pass
@@ -58,15 +82,18 @@ class Function1(Frame):
         self.label_name = Label(self, text="Full Name :", foreground="red")
         self.label_name.grid(row=1, column=0, padx=2, pady=2, sticky="W")
 
-        self.label_name_annotation = Label(self, text="")
-        self.label_name_annotation.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky="NS")
+        self.label_first_name_annotation = Label(self, text="")
+        self.label_first_name_annotation.grid(row=2, column=1, columnspan=1, padx=2, pady=2, sticky="NS")
+
+        self.label_first_name_annotation = Label(self, text="")
+        self.label_first_name_annotation.grid(row=2, column=2, columnspan=1, padx=2, pady=2, sticky="NS")
         pass
 
     def entry_name_destroy(self):
         self.entry_name_first.destroy()
         self.entry_name_last.destroy()
         self.label_name.destroy()
-        self.label_name_annotation.destroy()
+        self.label_first_name_annotation.destroy()
         pass
 
     def entry_id_call(self):
@@ -137,8 +164,9 @@ class Function1(Frame):
             self.cbb_room_avail_call(update=True)
             print("Combobox of room available is updated by " + str(event))
             pass
+
         #
-        room_type_value = db.get_room_type()
+        room_type_value = db.get_room_type_list()
         # entries
         self.cbb_room_type = Combobox(self, value=room_type_value, state="readonly")
         self.cbb_room_type.bind("<<ComboboxSelected>>", after_choose_value)

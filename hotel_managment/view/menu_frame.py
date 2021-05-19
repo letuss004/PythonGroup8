@@ -5,7 +5,9 @@ from hotel_managment.view.function3 import Function3
 from hotel_managment.view.function4 import Function4
 from hotel_managment.view.function5 import Function5
 
+
 class MenuFrame(Frame):
+
     def __init__(self, container, attr_root):
         super(MenuFrame, self).__init__(container)
         #
