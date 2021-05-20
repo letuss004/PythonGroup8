@@ -63,7 +63,8 @@ class Function3(Frame):
         supply_value = []
         for supply in data:
             # supply[0] = id of the service
-            supply_value.append(f"{supply[0]} || {supply[1]} || {supply[2]}")
+            supply_value.append(f"{str(supply[0]).capitalize()} || {str(supply[1]).capitalize()}"
+                                f" || {str(supply[2]).capitalize()}")
 
         #
         self.cbb_supply = Combobox(self, value=supply_value, state="readonly")
@@ -83,30 +84,34 @@ class Function3(Frame):
 
         #
         def command_button_enter():
-            quantity = int(self.entry_supply_quantity.get())
-            print(type(quantity))
-            #
-            if self.cbb_supply.get() == "":
-                # this not for decorating not necessary
-                self.label_supply_annotation.config(text="Please select supply", foreground="red")
-            elif self.cbb_room_unavail.get() == "":
-                # this not for decorating not necessary
-                self.label_room_unavail_annotation.config(text="Please select room", foreground="red")
-                self.label_supply_annotation.config(text="", foreground="red")
-            elif controller.input_int_controller(quantity, 1, 20, self.label_quantity_annotation):
-                self.label_room_unavail_annotation.config(text="", foreground="red")
-                self.label_supply_annotation.config(text="", foreground="red")
-                # this necessary
-                for i in range(quantity):
-                    room_id = self.cbb_room_unavail.get()
-                    supply_id = self.cbb_values[0]
-                    print(supply_id + " this is supply id line 102 f3")
-                    check_in_id = int(db.get_check_in_id_by_room_id(room_id))
-                    #
-                    db.set_room_service_table(check_in_id, supply_id)
-
-                #
-                self.label_quantity_annotation.config(text="Action is Done !", foreground="red")
+            # using try except to handle exception of int(self.entry_supply_quantity.get())
+            try:
+                # decorating
+                self.label_quantity_annotation.config(text="", foreground="red")
+                # quantity is number of supply customer want to order
+                quantity = int(self.entry_supply_quantity.get())
+                if self.cbb_supply.get() == "":
+                    # this for decorating not necessary
+                    self.label_supply_annotation.config(text="Please select supply", foreground="red")
+                elif self.cbb_room_unavail.get() == "":
+                    # this for decorating not necessary
+                    self.label_room_unavail_annotation.config(text="Please select room", foreground="red")
+                    self.label_supply_annotation.config(text="", foreground="red")
+                elif controller.input_int_controller(quantity, 1, 20, self.label_quantity_annotation):
+                    self.label_room_unavail_annotation.config(text="", foreground="red")
+                    self.label_supply_annotation.config(text="", foreground="red")
+                    # this necessary
+                    for i in range(quantity):
+                        room_id = self.cbb_room_unavail.get()
+                        supply_id = self.cbb_values[0]
+                        print(supply_id + " this is supply id line 102 f3")
+                        check_in_id = int(db.get_check_in_id_by_room_id(room_id))
+                        #
+                        db.set_room_service_table(check_in_id, supply_id)
+                    # this for decorating not necessary
+                    self.label_quantity_annotation.config(text="Action is Done !", foreground="red")
+            except ValueError:
+                self.label_quantity_annotation.config(text="Please enter an correct number", foreground="red")
 
     def entry_supply_quantity_call(self):
         self.entry_supply_quantity = Entry(self)

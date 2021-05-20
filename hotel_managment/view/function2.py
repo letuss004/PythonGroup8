@@ -64,11 +64,11 @@ class Function2(Frame):
         self.label_status_list = []
         #
         for room in data:
-            r_id = room[0]
-            r_type = room[1]
-            r_status = room[2]
+            r_id = str(room[0]).capitalize()
+            r_type = str(room[1]).capitalize()
+            r_status = str(room[2]).capitalize()
             #
-            if r_status == "available":
+            if r_status == "available" or r_status == "Available":
                 r_status_color = "green"
             else:
                 r_status_color = "red"

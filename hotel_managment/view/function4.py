@@ -3,6 +3,7 @@ import hotel_managment.model.database as db
 # import PythonStore.GUI.ControllerStore as Cs
 import hotel_managment.control.controller as controller
 
+
 class Function4(Frame):
     def __init__(self, container, attr_root):
         super(Function4, self).__init__(container)
@@ -47,12 +48,18 @@ class Function4(Frame):
 
                 #
                 r_id = str(self.cbb_room.get())
-                print(r_id + " line 44 F4")
                 c_i_id = db.get_check_in_id_by_room_id(r_id)
                 date = self.entry_check_out.get()
                 price = db.get_price_for_checkout(r_id, c_i_id, date, self.label_check_out_annotation)
+                check_in_date = db.get_date_from_check_in(c_i_id)[0]
+
+                #
                 db.set_check_out_table(c_i_id, date, price)
                 db.change_room_status(r_id, status=1)
+
+                #
+                check_out_id = db.get_check_out_id_by_check_in_id(c_i_id)
+                db.set_history(c_i_id, check_out_id, check_in_date, date, price)
 
                 #
                 self.label_check_out_annotation.config(text=f"Total price is {str(price)}", foreground="red")

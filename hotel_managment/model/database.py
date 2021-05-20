@@ -283,7 +283,8 @@ def get_number_of_day_rented(check_in_id, check_out_date, label_annotation):
     # str(get_date_from_check_in(check_in_id)[0]).split("/") = ['18', '05', '2021']
     c_i_d = str(get_date_from_check_in(check_in_id)[0]).split("/")
     c_o_d = str(check_out_date).split("/")
-    print(str(c_i_d) + " cod")
+
+    #
     check_in_date = date(int(c_i_d[2]), int(c_i_d[1]), int(c_i_d[0]))
     check_out_date = date(int(c_o_d[2]), int(c_o_d[1]), int(c_o_d[0]))
     delta = check_out_date - check_in_date
@@ -313,9 +314,39 @@ def get_date_from_check_out(check_out_id):
     return data
 
 
-def set_history(check_in_id, check_out_id):
-    condition = f"INSERT INTO history (check_in_id, check_out_id) " \
-                f"VALUES ('{check_in_id}', '{check_out_id}')"
+def set_history(check_in_id, check_out_id, check_in_date, check_out_date, price):
+    condition = f"INSERT INTO history (check_in_id, check_out_id, check_in_date, check_out_date, price)" \
+                f"VALUES ({int(check_in_id)}, {int(check_out_id)}, '{check_in_date}', '{check_out_date}' ,{int(price)})"
     cursor.execute(condition)
     database.commit()
+    pass
+
+
+def get_history_information():
+    condition = f"SELECT check_out_id, check_in_date, check_out_date, price FROM history"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+    pass
+
+
+def get_customer_name_from_check_in_id(c_i_id):
+    def get_customer_id():
+        condition1 = f"SELECT customer_id FROM check_in WHERE check_in_id = '{c_i_id}'"
+        cursor.execute(condition1)
+        data1 = cursor.fetchone()
+        return data1[0]
+
+    customer_id = get_customer_id()
+    condition = f"SELECT full_name FROM customer WHERE id ='{customer_id}'"
+    cursor.execute(condition)
+    data = cursor.fetchone()
+    return data[0]
+    pass
+
+
+def get_rid_from_history():
+    condition = f"SELECT full_name FROM customer"
+    cursor.execute(condition)
+    data = cursor.fetchall()
     pass
