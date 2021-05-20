@@ -17,7 +17,7 @@ class Function4(Frame):
         self.entry_check_out_day()
 
         # combo boxes
-        self.cbb_check_out_room()
+        self.cbb_check_out_room_call()
         # column configure
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure(2, weight=1)
@@ -39,7 +39,13 @@ class Function4(Frame):
 
         #
         def command_button_enter():
-            if controller.input_dob(self.entry_check_out.get(), self.label_check_out_annotation):
+            print(self.cbb_room.get())
+            if self.cbb_room.get() == "":
+                self.label_room_annotation.config(text=f"Please enter room", foreground="red")
+            elif controller.input_dob(self.entry_check_out.get(), self.label_check_out_annotation):
+                self.label_check_out_annotation.config(text=f"", foreground="red")
+
+                #
                 r_id = str(self.cbb_room.get())
                 print(r_id + " line 44 F4")
                 c_i_id = db.get_check_in_id_by_room_id(r_id)
@@ -47,13 +53,14 @@ class Function4(Frame):
                 price = db.get_price_for_checkout(r_id, c_i_id, date, self.label_check_out_annotation)
                 db.set_check_out_table(c_i_id, date, price)
                 db.change_room_status(r_id, status=1)
+
                 #
-                self.label_check_out_annotation.config(text="Action is done !", foreground="red")
+                self.label_check_out_annotation.config(text=f"Total price is {str(price)}", foreground="red")
                 pass
 
         pass
 
-    def cbb_check_out_room(self):
+    def cbb_check_out_room_call(self):
         cbb_value = db.get_room_unavailable()
         self.cbb_room = Combobox(self, value=cbb_value, state="readonly")
         self.cbb_room.grid(row=1, column=1, columnspan=2, padx=3, pady=3, sticky="SNEW")
@@ -63,7 +70,7 @@ class Function4(Frame):
         self.label_room.grid(row=1, column=0, padx=2, pady=2, sticky="W")
 
         self.label_room_annotation = Label(self, text="")
-        self.label_room_annotation.grid(row=2, column=0, columnspan=2, padx=2, pady=2, sticky="NS")
+        self.label_room_annotation.grid(row=2, column=1, columnspan=2, padx=2, pady=2, sticky="NS")
         pass
 
     def show_bill(self, destroy=0):

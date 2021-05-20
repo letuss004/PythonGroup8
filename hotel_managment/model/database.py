@@ -3,7 +3,7 @@ from datetime import date
 import hotel_managment.control.controller as controller
 
 database = cnt.connect(host="localhost", user="root", passwd="12345678", database="hotel")
-cursor = database.cursor()
+cursor = database.cursor(buffered=True)
 
 
 def get_room_avail():
@@ -168,8 +168,10 @@ def change_room_status(room_id, status=0):
 
 
 def set_room_service_table(check_in_id, supply_id):
+    print(f"check in id = {check_in_id} and supply id = {supply_id} at set_room_service_table")
+
     condition = f"INSERT INTO room_service (check_in_id, supply_id) " \
-                f"VALUES ('{check_in_id}', '{supply_id}')"
+                f"VALUES ({check_in_id}, '{supply_id}')"
     cursor.execute(condition)
     database.commit()
     pass
@@ -178,16 +180,19 @@ def set_room_service_table(check_in_id, supply_id):
 def get_check_in_id_by_room_id(r_id):
     # this method get check in id from the room id which is renting
     condition = ""
-    print(str(r_id) + " tao deo hieu cc gi" + " from get_check_in_id_from_room_id")
+    # print(str(r_id) + " tao deo hieu cc gi" + " from get_check_in_id_from_room_id")
     # using is_room_id_renting to check the room which is renting
     if is_room_id_renting(r_id):
         print("this room is renting")
-        condition = f"SELECT check_in_id FROM check_in WHERE room_id = '{r_id}'"
+        condition = f"SELECT check_in_id FROM check_in " \
+                    f"WHERE room_id = '{r_id}' " \
+                    f"ORDER BY check_in_id DESC"
 
     cursor.execute(condition)
     data = cursor.fetchone()
 
     check_in_id = data[0]
+    print(str(check_in_id) + " check_in_id in get_check_in_id_by_room_id")
     return check_in_id
     pass
 
