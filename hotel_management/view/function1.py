@@ -1,7 +1,7 @@
 from tkinter.ttk import *
-import hotel_managment.model.database as db
+import hotel_management.model.database as db
 # import PythonStore.GUI.ControllerStore as Cs
-import hotel_managment.control.controller as controller
+import hotel_management.control.controller as controller
 
 class Function1(Frame):
     def __init__(self, container, attr_root):
@@ -158,11 +158,11 @@ class Function1(Frame):
             elif self.cbb_room_type.get() == "president":
                 self.room_avail_value = db.get_room_available(types=3)
             else:
-                print("File function 1 at cbb_room_type_call has an error")
+                print("---File function 1 at cbb_room_type_call has an error")
             #
             self.cbb_room_avail_destroy()
             self.cbb_room_avail_call(update=True)
-            print("Combobox of room available is updated by " + str(event))
+            print("---Combobox of room available is updated by " + str(event))
             pass
 
         #

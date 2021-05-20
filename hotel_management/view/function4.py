@@ -1,7 +1,7 @@
 from tkinter.ttk import *
-import hotel_managment.model.database as db
+import hotel_management.model.database as db
 # import PythonStore.GUI.ControllerStore as Cs
-import hotel_managment.control.controller as controller
+import hotel_management.control.controller as controller
 
 
 class Function4(Frame):
@@ -40,7 +40,6 @@ class Function4(Frame):
 
         #
         def command_button_enter():
-            print(self.cbb_room.get())
             if self.cbb_room.get() == "":
                 self.label_room_annotation.config(text=f"Please enter room", foreground="red")
             elif controller.input_dob(self.entry_check_out.get(), self.label_check_out_annotation):

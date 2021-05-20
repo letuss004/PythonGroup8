@@ -1,9 +1,9 @@
 from tkinter.ttk import *
-from hotel_managment.view.function1 import Function1
-from hotel_managment.view.function2 import Function2
-from hotel_managment.view.function3 import Function3
-from hotel_managment.view.function4 import Function4
-from hotel_managment.view.function5 import Function5
+from hotel_management.view.function1 import Function1
+from hotel_management.view.function2 import Function2
+from hotel_management.view.function3 import Function3
+from hotel_management.view.function4 import Function4
+from hotel_management.view.function5 import Function5
 
 
 class MenuFrame(Frame):

@@ -2,7 +2,7 @@
 
 """
 
-from hotel_managment.view.root import *
+from hotel_management.view.root import *
 
 if __name__ == '__main__':
     root = Root()

@@ -1,6 +1,6 @@
 import mysql.connector as cnt
 from datetime import date
-import hotel_managment.control.controller as controller
+import hotel_management.control.controller as controller
 
 database = cnt.connect(host="localhost", user="root", passwd="12345678", database="hotel")
 cursor = database.cursor(buffered=True)
@@ -47,7 +47,7 @@ def get_room_available(types=0):
         condition = f"SELECT * FROM room WHERE type = 'president' and status = 'available'"
     else:
         condition = f"SELECT * FROM room WHERE status = 'available'"
-        print("Types is an bad value!!! Set type as default.")
+        print("---Types is an bad value!!! Set type as default.")
     # execute and get data
     cursor.execute(condition)
     data = cursor.fetchall()
@@ -87,7 +87,6 @@ def get_price_of_supply(supply_id):
     condition = f"SELECT price FROM supply WHERE id = '{supply_id}'"
     cursor.execute(condition)
     data = cursor.fetchone()
-    print(data)
     price = int(data[0])
     return price
 
@@ -113,7 +112,7 @@ def set_customer_table(cid, f_name, l_name, phone):
     full_name = str(f_name) + str(l_name)
     if check_c_id_overlap(cid):
         condition = f"UPDATE customer SET full_name = '{full_name}', phone = '{phone}' WHERE id = '{cid}'"
-        print("This customer rented, information will overlap !")
+        print("---This customer rented, information will overlap !")
     else:
         condition = f"INSERT INTO customer VALUES ('{cid}', '{full_name}', '{phone}')"
     cursor.execute(condition)
@@ -168,7 +167,7 @@ def change_room_status(room_id, status=0):
 
 
 def set_room_service_table(check_in_id, supply_id):
-    print(f"check in id = {check_in_id} and supply id = {supply_id} at set_room_service_table")
+    # print(f"check in id = {check_in_id} and supply id = {supply_id} at set_room_service_table")
 
     condition = f"INSERT INTO room_service (check_in_id, supply_id) " \
                 f"VALUES ({check_in_id}, '{supply_id}')"
@@ -183,7 +182,7 @@ def get_check_in_id_by_room_id(r_id):
     # print(str(r_id) + " tao deo hieu cc gi" + " from get_check_in_id_from_room_id")
     # using is_room_id_renting to check the room which is renting
     if is_room_id_renting(r_id):
-        print("this room is renting")
+        # print("this room is renting")
         condition = f"SELECT check_in_id FROM check_in " \
                     f"WHERE room_id = '{r_id}' " \
                     f"ORDER BY check_in_id DESC"
@@ -192,7 +191,7 @@ def get_check_in_id_by_room_id(r_id):
     data = cursor.fetchone()
 
     check_in_id = data[0]
-    print(str(check_in_id) + " check_in_id in get_check_in_id_by_room_id")
+    # print(str(check_in_id) + " check_in_id in get_check_in_id_by_room_id")
     return check_in_id
     pass
 
@@ -214,7 +213,7 @@ def is_room_id_renting(r_id):
     condition = f"SELECT status FROM room WHERE id = '{r_id}'"
     cursor.execute(condition)
     data = cursor.fetchone()
-    print(str(data) + " from is_room_id_renting")
+    # print(str(data) + " from is_room_id_renting")
     #
     if data is None:
         return False
@@ -254,18 +253,18 @@ def get_price_for_checkout(room_id, check_in_id, check_out_date, label_annotatio
     data1 = []
     for supply in data:
         data1.append(supply[0])
-    print(str(data1) + "data1")
+    # print(str(data1) + "data1")
     #
     supply_id_list = controller.list_no_repetition(data1)
-    print(str(supply_id_list) + " list_ele_on_string")
+    # print(str(supply_id_list) + " list_ele_on_string")
     quantity_per_supply_id_list = controller.count_num_of_ele_on_list(data1)
-    print(str(quantity_per_supply_id_list) + " count_num_of_ele_on_string")
+    # print(str(quantity_per_supply_id_list) + " count_num_of_ele_on_string")
     # total_price = calculate the price of all supplies are ordered
     total_price = 0
     for i in range(len(supply_id_list)):
         supply_id = supply_id_list[i]
         quantity = int(quantity_per_supply_id_list[i])
-        print(supply_id + "line 248")
+        # print(supply_id + "line 248")
         total_price += get_price_of_supply(supply_id) * quantity
         pass
 

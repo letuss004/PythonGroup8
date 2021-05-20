@@ -1,5 +1,5 @@
 from tkinter.ttk import *
-import hotel_managment.model.database as db
+import hotel_management.model.database as db
 
 class Function5(Frame):
     def __init__(self, container, attr_root):
@@ -67,7 +67,7 @@ class Function5(Frame):
         self.label_price_list = []
         # data include check out id, in date, out date and price
         data = db.get_history_information()
-        print(data)
+        # print(data)
         # data1 only room
         for information in data:
             check_out_id = information[0]

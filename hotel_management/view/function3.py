@@ -1,6 +1,6 @@
 from tkinter.ttk import *
-import hotel_managment.model.database as db
-import hotel_managment.control.controller as controller
+import hotel_management.model.database as db
+import hotel_management.control.controller as controller
 
 
 class Function3(Frame):
@@ -54,7 +54,7 @@ class Function3(Frame):
         cbb_value = str(self.cbb_supply.get())
         # values variable has shape ['id', 'name', 'price'] of supply
         self.cbb_values = cbb_value.split(" || ")
-        print("Combobox of Ordering is updated by " + str(event))
+        print("---Combobox of Ordering is updated by " + str(event))
         pass
 
     def cbb_supply_call(self):
@@ -104,7 +104,7 @@ class Function3(Frame):
                     for i in range(quantity):
                         room_id = self.cbb_room_unavail.get()
                         supply_id = self.cbb_values[0]
-                        print(supply_id + " this is supply id line 102 f3")
+                        # print(supply_id + " this is supply id line 102 f3")
                         check_in_id = int(db.get_check_in_id_by_room_id(room_id))
                         #
                         db.set_room_service_table(check_in_id, supply_id)

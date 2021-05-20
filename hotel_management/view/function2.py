@@ -1,5 +1,5 @@
 from tkinter.ttk import *
-import hotel_managment.model.database as db
+import hotel_management.model.database as db
 
 
 class Function2(Frame):
@@ -41,7 +41,7 @@ class Function2(Frame):
         pass
 
     def button_room_status_call(self):
-        self.button_room_status = Button(self, text="Room ID")
+        self.button_room_status = Button(self, text="Room Status")
         self.button_room_status.grid(row=1, column=2, columnspan=1, padx=3, pady=3, sticky="SNEW")
         pass
 

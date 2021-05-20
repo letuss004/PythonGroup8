@@ -1,6 +1,6 @@
 from ttkthemes import *
 from tkinter import *
-from hotel_managment.view.menu_frame import MenuFrame
+from hotel_management.view.menu_frame import MenuFrame
 
 
 class Root(ThemedTk):
