@@ -100,7 +100,7 @@ class Function5(Frame):
             pass
 
         #
-        self.button_check_out_id = Button(self, text="Check Out ID", command=lambda: command_sort_up())
+        self.button_check_out_id = Button(self, text="Check Out ID", command=lambda: command_sort_down())
         self.button_check_out_id.grid(row=1, column=0, columnspan=1, padx=2, pady=2, sticky="SNEW")
 
     def show_information(self, sort=False, sort_value=None):

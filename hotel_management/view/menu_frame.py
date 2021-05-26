@@ -4,6 +4,8 @@ from hotel_management.view.function2 import Function2
 from hotel_management.view.function3 import Function3
 from hotel_management.view.function4 import Function4
 from hotel_management.view.function5 import Function5
+from hotel_management.view.function6 import Function6
+
 
 
 class MenuFrame(Frame):
@@ -34,9 +36,9 @@ class MenuFrame(Frame):
                               command=lambda: [attr_root.show_frame(Function5), self.destroy()])
         bt_function5.grid(row=5, column=0, pady=10)
         #
-        # bt_function6 = Button(self, text="Get Courses Information", width=30,
-        #                       command=lambda: [attr_root.show_frame(Function6), self.destroy()])
-        # bt_function6.grid(row=6, column=0, pady=10)
+        bt_function6 = Button(self, text="Themes", width=20,
+                              command=lambda: [attr_root.show_frame(Function6), self.destroy()])
+        bt_function6.grid(row=6, column=0, pady=10)
         # #
         # bt_function7 = Button(self, text="Get Courses Information", width=30,
         #                       command=lambda: [attr_root.show_frame(Function7), self.destroy()])

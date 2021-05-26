@@ -44,7 +44,7 @@ class Function2(Frame):
             pass
 
         #
-        self.button_room_id = Button(self, text="Room ID", command=lambda: command_sort_up())
+        self.button_room_id = Button(self, text="Room ID", command=lambda: command_sort_down())
         self.button_room_id.grid(row=1, column=0, columnspan=1, padx=3, pady=3, sticky="SNEW")
         pass
 

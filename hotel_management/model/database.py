@@ -457,8 +457,8 @@ def get_customer_name_from_check_in_id(c_i_id):
     pass
 
 
-def get_rid_from_history():
-    condition = f"SELECT full_name FROM customer"
-    cursor.execute(condition)
-    data = cursor.fetchall()
-    pass
+# def get_rid_from_history():
+#     condition = f"SELECT full_name FROM customer"
+#     cursor.execute(condition)
+#     data = cursor.fetchall()
+#     pass

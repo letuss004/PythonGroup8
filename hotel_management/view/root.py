@@ -11,7 +11,9 @@ class Root(ThemedTk):
         self.minsize(500, 500)
         self.maxsize(500, 500)
         self.title("Hotel Management")
-        self.set_theme("arc")
+        # self.set_theme("arc")
+        self.style = ThemedStyle(self)
+        self.style.theme_use("arc")
         self.MenuFrame = MenuFrame
         # create container that contain all things
         self.container = Frame(self)

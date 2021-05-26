@@ -48,11 +48,32 @@ class Function1(Frame):
             # consider the condition
             if str(self.entry_id.get()).isdigit():
                 check_id = True
+                self.label_id_annotation.config(text="")
             else:
                 self.label_id_annotation.config(text="Identifier is only number", foreground="red")
+            #
+            if str(self.entry_phone.get()).isdigit():
+                check_id = True
+                self.label_phone_annotation.config(text="")
+            else:
+                self.label_phone_annotation.config(text="Phone number is only number", foreground="red")
+            #
             if controller.input_dob(self.entry_check_in_dat.get(), self.label_dob_annotation):
                 self.label_id_annotation.config(text="")
                 check_date = True
+            #
+            if self.cbb_room_type.get() == "":
+                self.label_room_type_annotation.config(text="Please select room type", foreground="red")
+                check_id = False
+            else:
+                self.label_room_type_annotation.config(text="", foreground="red")
+            #
+            if self.cbb_room_avail.get() == "":
+                self.label_room_avail_annotation.config(text="Please select the room", foreground="red")
+                check_id = False
+            else:
+                self.label_room_avail_annotation.config(text="", foreground="red")
+            #
             if check_id and check_date:
                 # set up
                 f_name = self.entry_name_first.get()
