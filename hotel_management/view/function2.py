@@ -31,17 +31,56 @@ class Function2(Frame):
             pass
 
     def button_room_id_call(self):
-        self.button_room_id = Button(self, text="Room ID")
+        def command_sort_up():
+            sort_value = db.sort_room_id_up()
+            self.show_room_list(sort=True, sort_value=sort_value)
+            self.button_room_id.config(command=lambda: command_sort_down())
+            pass
+
+        def command_sort_down():
+            sort_value = db.sort_room_id_down()
+            self.show_room_list(sort=True, sort_value=sort_value)
+            self.button_room_id.config(command=lambda: command_sort_up())
+            pass
+
+        #
+        self.button_room_id = Button(self, text="Room ID", command=lambda: command_sort_up())
         self.button_room_id.grid(row=1, column=0, columnspan=1, padx=3, pady=3, sticky="SNEW")
         pass
 
     def button_room_type_call(self):
-        self.button_room_type = Button(self, text="Room Type")
+        def command_sort_up():
+            sort_value = db.sort_room_type_up()
+            self.show_room_list(sort=True, sort_value=sort_value)
+            self.button_room_type.config(command=lambda: command_sort_down())
+            pass
+
+        def command_sort_down():
+            sort_value = db.sort_room_type_down()
+            self.show_room_list(sort=True, sort_value=sort_value)
+            self.button_room_type.config(command=lambda: command_sort_up())
+            pass
+
+        #
+        self.button_room_type = Button(self, text="Room Type", command=lambda: command_sort_up())
         self.button_room_type.grid(row=1, column=1, columnspan=1, padx=3, pady=3, sticky="SNEW")
         pass
 
     def button_room_status_call(self):
-        self.button_room_status = Button(self, text="Room Status")
+        def command_sort_up():
+            sort_value = db.sort_room_status_up()
+            self.button_room_status.config(command=lambda: command_sort_down())
+            self.show_room_list(sort=True, sort_value=sort_value)
+            pass
+
+        def command_sort_down():
+            sort_value = db.sort_room_status_down()
+            self.button_room_status.config(command=lambda: command_sort_up())
+            self.show_room_list(sort=True, sort_value=sort_value)
+            pass
+
+        #
+        self.button_room_status = Button(self, text="Room Status", command=lambda: command_sort_up())
         self.button_room_status.grid(row=1, column=2, columnspan=1, padx=3, pady=3, sticky="SNEW")
         pass
 
@@ -52,6 +91,7 @@ class Function2(Frame):
             sort_value = [1]
         # take room data from database
         if sort:
+            self.destroy_inf()
             data = sort_value
         else:
             data = db.get_room_data()
@@ -84,3 +124,13 @@ class Function2(Frame):
             #
             element += 1
             row += 1
+
+    def destroy_inf(self):
+        for i in self.label_id_list:
+            i.destroy()
+        for i in self.label_type_list:
+            i.destroy()
+        for i in self.label_status_list:
+            i.destroy()
+
+        pass

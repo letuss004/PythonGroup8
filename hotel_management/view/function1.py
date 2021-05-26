@@ -3,6 +3,7 @@ import hotel_management.model.database as db
 # import PythonStore.GUI.ControllerStore as Cs
 import hotel_management.control.controller as controller
 
+
 class Function1(Frame):
     def __init__(self, container, attr_root):
         super(Function1, self).__init__(container)
@@ -45,11 +46,13 @@ class Function1(Frame):
             check_id = False
             check_date = False
             # consider the condition
-            if controller.input_identifier(self.entry_id.get(), self.label_id_annotation):
+            if str(self.entry_id.get()).isdigit():
                 check_id = True
+            else:
+                self.label_id_annotation.config(text="Identifier is only number", foreground="red")
             if controller.input_dob(self.entry_check_in_dat.get(), self.label_dob_annotation):
+                self.label_id_annotation.config(text="")
                 check_date = True
-
             if check_id and check_date:
                 # set up
                 f_name = self.entry_name_first.get()

@@ -53,7 +53,15 @@ class Function3(Frame):
         # value has the shape of id || name || price
         cbb_value = str(self.cbb_supply.get())
         # values variable has shape ['id', 'name', 'price'] of supply
-        self.cbb_values = cbb_value.split(" || ")
+        cbb_value = cbb_value.split("     ")
+        #
+        self.cbb_values = []
+        sid = cbb_value[0].split(": ")[1]
+        name = cbb_value[1].split(": ")[1]
+        price = cbb_value[2].split(": ")[1]
+        self.cbb_values.append(sid)
+        self.cbb_values.append(name)
+        self.cbb_values.append(price)
         print("---Combobox of Ordering is updated by " + str(event))
         pass
 
@@ -63,8 +71,11 @@ class Function3(Frame):
         supply_value = []
         for supply in data:
             # supply[0] = id of the service
-            supply_value.append(f"{str(supply[0]).capitalize()} || {str(supply[1]).capitalize()}"
-                                f" || {str(supply[2]).capitalize()}")
+            sid = str(supply[0]).capitalize()
+            name = str(supply[1]).capitalize()
+            price = str(supply[2]).capitalize()
+            #
+            supply_value.append(f"ID: {sid}     Name: {name}     Price: {price}")
 
         #
         self.cbb_supply = Combobox(self, value=supply_value, state="readonly")
@@ -72,7 +83,7 @@ class Function3(Frame):
         self.cbb_supply.grid(row=3, column=1, columnspan=2, padx=3, pady=3, sticky="SNEW")
 
         # labels for this entry
-        self.label_supply = Label(self, text="Supplies Id|Name|Price :", foreground="red")
+        self.label_supply = Label(self, text="Supplies Information :", foreground="red")
         self.label_supply.grid(row=3, column=0, padx=2, pady=2, sticky="W")
 
         self.label_supply_annotation = Label(self, text="")

@@ -17,6 +17,119 @@ def get_room_data():
     return data
 
 
+def sort_room_id_up():
+    condition = f"SELECT * FROM room ORDER BY id ASC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_room_id_down():
+    condition = f"SELECT * FROM room ORDER BY id DESC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_room_type_up():
+    condition = f"SELECT * FROM room ORDER BY type ASC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_room_type_down():
+    condition = f"SELECT * FROM room ORDER BY type DESC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_room_status_up():
+    condition = f"SELECT * FROM room ORDER BY status ASC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_room_status_down():
+    condition = f"SELECT * FROM room ORDER BY status DESC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+# def get_history_information():
+#     condition = f"SELECT check_out_id, check_in_date, check_out_date, price FROM history"
+#     cursor.execute(condition)
+#     data = cursor.fetchall()
+#     return data
+#     pass
+
+def sort_history_check_out_id_up():
+    condition = f"SELECT check_out_id, check_in_date, check_out_date, price " \
+                f"FROM history ORDER BY check_out_id ASC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_history_check_out_id_down():
+    condition = f"SELECT check_out_id, check_in_date, check_out_date, price " \
+                f"FROM history ORDER BY check_out_id DESC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_history_check_in_date_up():
+    condition = f"SELECT check_out_id, check_in_date, check_out_date, price " \
+                f"FROM history ORDER BY check_in_date ASC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_history_check_in_date_down():
+    condition = f"SELECT check_out_id, check_in_date, check_out_date, price " \
+                f"FROM history ORDER BY check_in_date DESC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_history_check_out_date_up():
+    condition = f"SELECT check_out_id, check_in_date, check_out_date, price " \
+                f"FROM history ORDER BY check_out_date ASC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_history_check_out_date_down():
+    condition = f"SELECT check_out_id, check_in_date, check_out_date, price " \
+                f"FROM history ORDER BY check_out_date DESC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_history_price_up():
+    condition = f"SELECT check_out_id, check_in_date, check_out_date, price " \
+                f"FROM history ORDER BY price ASC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
+def sort_history_price_down():
+    condition = f"SELECT check_out_id, check_in_date, check_out_date, price " \
+                f"FROM history ORDER BY price DESC"
+    cursor.execute(condition)
+    data = cursor.fetchall()
+    return data
+
+
 def get_room_type_list():
     condition = f"SELECT * FROM room_type"
     cursor.execute(condition)
