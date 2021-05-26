@@ -1,9 +1,5 @@
 from tkinter.ttk import *
 import tkinter as tk
-# from tkinter import *
-import hotel_management.model.database as db
-# import PythonStore.GUI.ControllerStore as Cs
-import hotel_management.control.controller as controller
 
 
 class Function6(Frame):
@@ -12,7 +8,7 @@ class Function6(Frame):
         self.root = attr_root
         self.var = tk.IntVar()
         # labels
-        self.label_status = Label(self, text="Change any themes you want", foreground="red")
+        self.label_status = Label(self, text="            Change any themes you want", foreground="red")
         self.label_status.grid(row=0, column=0, columnspan=10, padx=2, pady=2, sticky="NS")
         # buttons
         self.button_back_call(attr_root)
@@ -28,7 +24,6 @@ class Function6(Frame):
         self.grid_columnconfigure(7, weight=3)
         self.grid_columnconfigure(8, weight=3)
         self.grid_columnconfigure(9, weight=3)
-
         pass
 
     def radio_buttons_call(self):
@@ -60,17 +55,23 @@ class Function6(Frame):
     def radiobutton_command(self):
         theme = ""
         if self.var.get() == 1:
+            print("---Theme root is updated. Arc is selected !")
             theme = "arc"
         elif self.var.get() == 2:
             theme = "equilux"
+            print("---Theme root is updated. Equilux is selected !")
         elif self.var.get() == 3:
             theme = "ubuntu"
+            print("---Theme root is updated. Ubuntu is selected !")
         elif self.var.get() == 4:
             theme = "black"
+            print("---Theme root is updated. Black is selected !")
         elif self.var.get() == 5:
             theme = "blue"
+            print("---Theme root is updated. Blue is selected !")
         elif self.var.get() == 6:
             theme = "adapta"
+            print("---Theme root is updated. Adapta is selected !")
         self.root.style.theme_use(theme)
         pass
 

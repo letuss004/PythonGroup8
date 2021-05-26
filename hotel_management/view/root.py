@@ -9,7 +9,7 @@ class Root(ThemedTk):
         # setting main window and class's attribute
         self.geometry("500x500")
         self.minsize(500, 500)
-        self.maxsize(500, 500)
+        self.maxsize(650, 500)
         self.title("Hotel Management")
         # self.set_theme("arc")
         self.style = ThemedStyle(self)
