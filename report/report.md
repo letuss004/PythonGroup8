@@ -199,7 +199,7 @@ separate concerns of an application into three parts:
 
 ![](image/mvc.png)
 
-### 4. Modules, classes and packages <a name="implementation4"></a>
+### 4. Modules, Classes and Packages <a name="implementation4"></a>
 
 &ensp;&ensp;&ensp;Apply the above criteria, we divide it into various small sections to facilitate easy processing as
 figure below:
@@ -250,7 +250,7 @@ the database, such as entering room information, type of food, and so on.
 
 > &ensp;&ensp;&ensp;The main frame with five functionalities to select: check in, room manage, room order, check out, history.
 
-### 2. Check in <a name="results2"></a>
+### 2. Check In <a name="results2"></a>
 
 ![](image/Checkin2.jpg)
 
@@ -263,20 +263,20 @@ the database, such as entering room information, type of food, and so on.
 > &ensp;&ensp;&ensp;On last two widgets, users can choose the room type and availability as required
 > by the customer.
 
-### 3. Room manage <a name="results3"></a>
+### 3. Room Manage <a name="results3"></a>
 
 ![](image/roomstatus2.jpg)
 
 > &ensp;&ensp;&ensp;Display a list of available or unavailable room statuses (in this case values is sorted by sort button).
 
-### 4. Room order <a name="results4"></a>
+### 4. Room Order <a name="results4"></a>
 
 ![](image/order1.jpg)
 
 > &ensp;&ensp;&ensp;Based on the order of the customer who is renting the room, the user selects
 > the type of item, and the quantity provided to that customer.
 
-### 5. Check out <a name="results5"></a>
+### 5. Check Out <a name="results5"></a>
 
 ![](image/checkout1.jpg)
 
