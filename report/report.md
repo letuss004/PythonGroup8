@@ -46,6 +46,9 @@ Nguyễn Văn Cường
         * [b) Tables functions](#implementation22)
     + [3. Project Architecture](#implementation3)
     + [4. Modules, Classes and Packages](#implementation4)
+        * [a) Database Script](#implementation4a)
+        * [a) Database Information Scripts](#implementation4b)
+        * [a) Hotel Management](#implementation4c)
 
 - [III/ Results](#results)
     + [1. Main Frame](#results1)
@@ -188,8 +191,10 @@ charge of logic, user input, and coordinating both the models and views. The goa
 separate concerns of an application into three parts:
 
 - Model is responsible for managing the data of the application. From the controller module, it receives user input.
+  <br/><br/>
 - The controller reacts to user input and interacts with the data model objects. The controller receives the input,
   validates it if necessary, and then sends it to the model.
+  <br/><br/>
 - View means a presentation of the model in a particular format, which would normally be a GUI.
 
 ![](image/mvc.png)
@@ -206,23 +211,36 @@ figure below:
 
 > &ensp;&ensp;&ensp;Inside Hotel_management, there is 3 more packages: “control”, “model”, “view” and file “main_hotel”.
 
-- Database_script: The Database scripts is a series of command line scripts which will create, erase, restore and merge
-  databases.
-- Db_information_scripts: As soon as the database is created, this file will be run with the task of generating
-  information for the database, such as entering room information, type of food, and so on.
-- Hotel_management: The hotel management system's entire python code:
-    + Control: As discussed above, controller.py is responsible for interacting and inspecting user data. To do this,
-      the controller must contain methods such as input_dob() that force the user to enter the corresponding user date
-      of birth.
-    + Model: Python module that deals with the database. It is responsible for the CRUD methods and connects the
-      database to the interface.    
-    + View: View is the most difficult element because it takes extensive understanding of GUI and OOP. At this package.
-      We divide into two main parts using the divide-to-conquer method:
-        * Root file: Root is responsible for creating and setting information for the main window. Most importantly,
-          it also takes care of switching between frames during the program by using switch_frames().
-        * Other files: They're frames made by inheriting from the ttk module Frame class. These frames will show the
-          user with options, requests, and messages, functional buttons and will be switched by root.
-    + Main_hotel: The file which call the root file and generating root object.
+#### a) Database Script <a name="implementation4a"></a>
+
+&ensp;&ensp;&ensp; The Database scripts is a series of command line scripts which will create, erase, restore and merge
+databases.
+
+#### b)  Database Information Scripts <a name="implementation4b"></a>
+
+&ensp;&ensp;&ensp; As soon as the database is created, this file will be run with the task of generating information for
+the database, such as entering room information, type of food, and so on.
+
+#### c) Hotel Management <a name="implementation4c"></a>
+
+> The hotel management system's entire python codes
+
+- Control: As discussed above, controller.py is responsible for interacting and inspecting user data. To do this, the
+  controller must contain methods such as input_dob() that force the user to enter the corresponding user date of birth.
+  <br/><br/>
+- Model: Python module that deals with the database. It is responsible for the CRUD methods and connects the database to
+  the interface.
+  <br/><br/>
+- View: View is the most difficult element because it takes extensive understanding of GUI and OOP. At this package. We
+  divide into two main parts using the divide-to-conquer method:
+
+    + Root file: Root is responsible for creating and setting information for the main window. Most importantly, it also
+      takes care of switching between frames during the program by using switch_frames().
+
+    + Other files: They're frames made by inheriting from the ttk module Frame class. These frames will show the user
+      with options, requests, and messages, functional buttons and will be switched by root.
+      <br/><br/>
+- Main_hotel: The file which call the root file and generating root object.
 
 ## III/. Results <a name="results"></a>
 
