@@ -233,7 +233,7 @@ the database, such as entering room information, type of food, and so on.
   <br/><br/>
 - View: View is the most difficult element because it takes extensive understanding of GUI and OOP. At this package. We
   divide into two main parts using the divide-to-conquer method:
-
+  <br/><br/>
     + Root file: Root is responsible for creating and setting information for the main window. Most importantly, it also
       takes care of switching between frames during the program by using switch_frames().
 
