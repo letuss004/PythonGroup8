@@ -47,8 +47,8 @@ Nguyễn Văn Cường
     + [3. Project Architecture](#implementation3)
     + [4. Modules, Classes and Packages](#implementation4)
         * [a) Database Script](#implementation4a)
-        * [a) Database Information Scripts](#implementation4b)
-        * [a) Hotel Management](#implementation4c)
+        * [b) Database Information Scripts](#implementation4b)
+        * [c) Hotel Management](#implementation4c)
 
 - [III/ Results](#results)
     + [1. Main Frame](#results1)
@@ -233,7 +233,7 @@ the database, such as entering room information, type of food, and so on.
   <br/><br/>
 - View: View is the most difficult element because it takes extensive understanding of GUI and OOP. At this package. We
   divide into two main parts using the divide-to-conquer method:
-  <br/><br/>
+  
     + Root file: Root is responsible for creating and setting information for the main window. Most importantly, it also
       takes care of switching between frames during the program by using switch_frames().
 
