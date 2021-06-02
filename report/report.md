@@ -96,7 +96,7 @@ releasing the room and finally compute the bill etc.
 
 ### 3. Preparations <a name="intro3"></a>
 
-#### a) Software and tools <a name="intro31"></a>
+#### a) Software and Tools <a name="intro31"></a>
 
 - OS: Windows 10
 - Environment: Python 3.9
@@ -154,7 +154,7 @@ Themes:
     Changing appearance of widgets.
 ```
 
-### 2. Database schema <a name="implementation2"></a>
+### 2. Database Schema <a name="implementation2"></a>
 
 &ensp;&ensp;&ensp;**Database** is an organized collection of structured information, or data, typically stored
 electronically in our system. The Diagram below is drawn to show the structure of the database. By using database
@@ -163,14 +163,14 @@ constraints. Most importantly, the diagram shows the relationships between table
 
 ![](image/database.jpg)
 
-#### a) Relationship between tables <a name="implementation21"></a>
+#### a) Relationship Between Tables <a name="implementation21"></a>
 
 + Tables with one-to-one relationship: &quot;customer&quot;, &quot;room\_type&quot;, &quot;room\_status&quot;,
   &quot;supply&quot;.
 + Tables with one-to-many relationship: &quot;room\_service&quot;, &quot;history&quot;.
 + Tables with many-to-many relationship: &quot;room&quot;, &quot;check\_in&quot;, &quot;check\_out&quot;.
 
-#### b) Tables functions <a name="implementation22"></a>
+#### b) Tables Functions <a name="implementation22"></a>
 
 - Customer: key information of a customer.
 - Room\_type: type and price of each room.
@@ -189,7 +189,6 @@ better application organization. Model, View, and Controller are the three compo
 application. It separates business data (Models) from user interfaces (Views), with a third component (Controllers) in
 charge of logic, user input, and coordinating both the models and views. The goal of MVC is to help structure the
 separate concerns of an application into three parts:
-
 - Model is responsible for managing the data of the application. From the controller module, it receives user input.
   <br/><br/>
 - The controller reacts to user input and interacts with the data model objects. The controller receives the input,
@@ -297,7 +296,7 @@ the database, such as entering room information, type of food, and so on.
 > &ensp;&ensp;&ensp;If you are a person who likes uniqueness and creativity. This function can give you some
 > satisfaction when changing the appearance of windows as well as widgets
 
-## IV/ Conclusion <a name="conclusion"></a>
+## IV/ Conclusions <a name="conclusion"></a>
 
 &ensp;&ensp;&ensp;We have almost completed program at a good level with the functions, inputs, outputs and user
 interface are clear and simple but effective. Besides, we still haven't done the job perfectly, the program still lacks
