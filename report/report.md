@@ -63,7 +63,7 @@ Nguyễn Văn Cường
 
 ## I/ Introduction <a name="intro"></a>
 
-### 1. What is Hotel Management System: <a name="intro1"></a>
+### 1. What is Hotel Management System <a name="intro1"></a>
 
 &ensp;&ensp;&ensp;We live in a world of high-tech solutions in every sphere - from finances to agriculture. Currently,
 more and more travelers tend to book rooms and services online, so hotel owners should be prepared to cope with this
@@ -154,7 +154,7 @@ Themes:
     Changing appearance of widgets.
 ```
 
-### 2. Database schema: <a name="implementation2"></a>
+### 2. Database schema <a name="implementation2"></a>
 
 &ensp;&ensp;&ensp;**Database** is an organized collection of structured information, or data, typically stored
 electronically in our system. The Diagram below is drawn to show the structure of the database. By using database
@@ -163,14 +163,14 @@ constraints. Most importantly, the diagram shows the relationships between table
 
 ![](image/database.jpg)
 
-#### a) Relationship between tables: <a name="implementation21"></a>
+#### a) Relationship between tables <a name="implementation21"></a>
 
 + Tables with one-to-one relationship: &quot;customer&quot;, &quot;room\_type&quot;, &quot;room\_status&quot;,
   &quot;supply&quot;.
 + Tables with one-to-many relationship: &quot;room\_service&quot;, &quot;history&quot;.
 + Tables with many-to-many relationship: &quot;room&quot;, &quot;check\_in&quot;, &quot;check\_out&quot;.
 
-#### b) Tables functions: <a name="implementation22"></a>
+#### b) Tables functions <a name="implementation22"></a>
 
 - Customer: key information of a customer.
 - Room\_type: type and price of each room.
@@ -199,7 +199,7 @@ separate concerns of an application into three parts:
 
 ![](image/mvc.png)
 
-### 4. Modules, classes and packages: <a name="implementation4"></a>
+### 4. Modules, classes and packages <a name="implementation4"></a>
 
 &ensp;&ensp;&ensp;Apply the above criteria, we divide it into various small sections to facilitate easy processing as
 figure below:
@@ -250,7 +250,7 @@ the database, such as entering room information, type of food, and so on.
 
 > &ensp;&ensp;&ensp;The main frame with five functionalities to select: check in, room manage, room order, check out, history.
 
-### 2. Check in: <a name="results2"></a>
+### 2. Check in <a name="results2"></a>
 
 ![](image/Checkin2.jpg)
 
@@ -263,27 +263,27 @@ the database, such as entering room information, type of food, and so on.
 > &ensp;&ensp;&ensp;On last two widgets, users can choose the room type and availability as required
 > by the customer.
 
-### 3. Room manage: <a name="results3"></a>
+### 3. Room manage <a name="results3"></a>
 
 ![](image/roomstatus2.jpg)
 
 > &ensp;&ensp;&ensp;Display a list of available or unavailable room statuses (in this case values is sorted by sort button).
 
-### 4. Room order: <a name="results4"></a>
+### 4. Room order <a name="results4"></a>
 
 ![](image/order1.jpg)
 
 > &ensp;&ensp;&ensp;Based on the order of the customer who is renting the room, the user selects
 > the type of item, and the quantity provided to that customer.
 
-### 5. Check out: <a name="results5"></a>
+### 5. Check out <a name="results5"></a>
 
 ![](image/checkout1.jpg)
 
 > &ensp;&ensp;&ensp;Select the room and fill in the customer&#39;s check-out date, thereby
 > calculating the customer&#39;s invoice.
 
-### 6. History: <a name="results6"></a>
+### 6. History <a name="results6"></a>
 
 ![](image/history1.jpg)
 
