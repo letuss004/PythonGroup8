@@ -1,10 +1,10 @@
 from tkinter.ttk import *
-from hotel_management.view.function1 import Function1
-from hotel_management.view.function2 import Function2
-from hotel_management.view.function3 import Function3
-from hotel_management.view.function4 import Function4
-from hotel_management.view.function5 import Function5
-from hotel_management.view.function6 import Function6
+from hotel_management.view.check_in import Function1
+from hotel_management.view.room_status import Function2
+from hotel_management.view.order import Function3
+from hotel_management.view.check_out import Function4
+from hotel_management.view.history import Function5
+from hotel_management.view.themes import Function6
 
 
 

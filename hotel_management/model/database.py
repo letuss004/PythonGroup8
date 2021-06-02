@@ -6,10 +6,6 @@ database = cnt.connect(host="localhost", user="root", passwd="12345678", databas
 cursor = database.cursor(buffered=True)
 
 
-def get_room_avail():
-    return None
-
-
 def get_room_data():
     condition = f"SELECT * FROM room"
     cursor.execute(condition)
@@ -455,7 +451,6 @@ def get_customer_name_from_check_in_id(c_i_id):
     data = cursor.fetchone()
     return data[0]
     pass
-
 
 # def get_rid_from_history():
 #     condition = f"SELECT full_name FROM customer"
